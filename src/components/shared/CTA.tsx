@@ -1,4 +1,4 @@
-import { Button } from "../ui/button";
+import ReferDailog from "./ReferDailog";
 
 const CTA = () => {
   return (
@@ -7,7 +7,7 @@ const CTA = () => {
       <p className="text-sm md:text-base mb-6">
         Get started with Accredian and earn rewards up to Rs. 15,000
       </p>
-      <Button className="bg-blue w-36 shadow-lg">Refer Now</Button>
+      <ReferDailog />
     </section>
   );
 };
