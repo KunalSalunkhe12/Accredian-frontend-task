@@ -45,8 +45,8 @@ const FAQ = () => {
       <h2>
         Frequently Asked <span className="text-blue">Questions</span>
       </h2>
-      <div className="flex gap-10 mt-6">
-        <div className="w-64 flex-2 mt-6">
+      <div className="flex flex-col md:flex-row gap-5 md:gap-10 mt-6">
+        <div className="w-64 flex-2 mt-6 mx-auto">
           <img
             className="object-contain"
             src="/images/sky-young-man-thinking.png"
@@ -57,7 +57,9 @@ const FAQ = () => {
           <Accordion type="single" collapsible>
             {faqs.map((faq) => (
               <AccordionItem key={faq.id} value={`item-${faq.id}`}>
-                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionTrigger className="text-left">
+                  {faq.question}
+                </AccordionTrigger>
                 <AccordionContent>{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}

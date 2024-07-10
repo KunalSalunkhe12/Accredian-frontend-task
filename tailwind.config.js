@@ -37,6 +37,10 @@ module.exports = {
           DEFAULT: "#1A73E8",
           foreground: "#EEF5FF",
         },
+        black: {
+          DEFAULT: "#000",
+          custom: "#282828",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
