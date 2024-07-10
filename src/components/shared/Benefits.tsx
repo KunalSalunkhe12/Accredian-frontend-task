@@ -48,7 +48,7 @@ const programs = [
 const Benefits = () => {
   return (
     <section>
-      <h2 className="text-center">
+      <h2>
         What Are The <span className="text-blue">Referral Benefits?</span>
       </h2>
       <Table className="mt-6 shadow-lg border rounded-lg">

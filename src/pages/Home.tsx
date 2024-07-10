@@ -1,5 +1,6 @@
 import Benefits from "@/components/shared/Benefits";
 import CTA from "@/components/shared/CTA";
+import FAQ from "@/components/shared/FAQ";
 import Hero from "@/components/shared/Hero";
 import HowToRefer from "@/components/shared/HowToRefer";
 
@@ -10,6 +11,7 @@ const Home = () => {
       <HowToRefer />
       <CTA />
       <Benefits />
+      <FAQ />
     </>
   );
 };

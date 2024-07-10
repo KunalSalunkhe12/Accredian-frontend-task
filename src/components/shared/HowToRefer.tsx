@@ -10,7 +10,7 @@ const StepCard = ({ title, step }: { title: string; step: string }) => {
 const HowToRefer = () => {
   return (
     <section>
-      <h2 className="text-center">
+      <h2>
         How Do I <span className="text-blue">Refer?</span>
       </h2>
       <div className="flex flex-wrap gap-10 my-10">
