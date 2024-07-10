@@ -11,7 +11,9 @@ const Hero = () => {
           Earn Rewards Up to{" "}
           <span className="text-blue font-bold">Rs. 15,000</span>
         </p>
-        <Button className="bg-blue w-36 shadow-lg">Refer Now</Button>
+        <Button className="bg-blue w-36 shadow-lg mx-auto md:mx-0">
+          Refer Now
+        </Button>
       </div>
       <div>
         <img src="/images/hero-img.svg" alt="Hero image" />
