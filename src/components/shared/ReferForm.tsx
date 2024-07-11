@@ -70,10 +70,10 @@ const ReferForm = ({ setFormSubmitted }: ReferFormProps) => {
   return form.formState ? (
     <>
       <LoaderCircle className="animate-spin mx-auto" size={40} />
-      <p className="text-xs">
+      {/* <p className="text-xs">
         Note: Render's Free instance will spin down with inactivity, which can
         delay requests by 50 seconds or more.
-      </p>
+      </p> */}
     </>
   ) : (
     <Form {...form}>
