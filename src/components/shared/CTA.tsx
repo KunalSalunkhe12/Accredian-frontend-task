@@ -1,13 +1,18 @@
 import ReferDailog from "./ReferDailog";
 
-const CTA = () => {
+type CTAProps = {
+  title: string;
+  description: string;
+};
+
+const CTA = ({ title, description }: CTAProps) => {
   return (
-    <section className="bg-radial-gradient p-8 rounded-lg text-center mt-8">
-      <h2 className="mb-2">Ready to Learn and Earn?</h2>
-      <p className="text-sm md:text-base mb-6">
-        Get started with Accredian and earn rewards up to Rs. 15,000
-      </p>
-      <ReferDailog />
+    <section className="bg-black-custom text-white p-8 rounded-lg text-center mt-8">
+      <h2 className="mb-2">{title}</h2>
+      <p className="text-sm md:text-base mb-6">{description}</p>
+      <div className="mx-auto md:mx-0">
+        <ReferDailog />
+      </div>
     </section>
   );
 };

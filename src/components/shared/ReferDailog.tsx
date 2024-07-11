@@ -18,22 +18,10 @@ const ReferDailog = () => {
     success: false,
   });
 
-  // useEffect(() => {
-  //   if (formSubmitted.submitted) {
-  //     const clearFormSubmitted = setTimeout(() => {
-  //       setFormSubmitted({ submitted: false, success: false });
-  //     }, 3000);
-
-  //     return () => {
-  //       clearTimeout(clearFormSubmitted);
-  //     };
-  //   }
-  // }, [formSubmitted]);
-
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="bg-blue w-36 shadow-lg mx-auto md:mx-0">
+        <Button className="bg-blue w-36 shadow-md  hover:bg-transparent hover:text-blue hover:border hover:border-blue">
           Refer Now
         </Button>
       </DialogTrigger>

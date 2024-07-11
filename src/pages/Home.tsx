@@ -9,9 +9,16 @@ const Home = () => {
     <>
       <Hero />
       <HowToRefer />
-      <CTA />
+      <CTA
+        title="Ready to Learn and Earn?"
+        description="Get started with Accredian and earn rewards up to Rs. 15,000"
+      />
       <Benefits />
       <FAQ />
+      <CTA
+        title="Conviced to Join?"
+        description="Join Accredian and earn rewards up to Rs. 15,000"
+      />
     </>
   );
 };
