@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
+import React from "react";
 
 const programOptions = [
   "Data Science",
@@ -36,10 +37,10 @@ const programOptions = [
 const formSchema = z.object({
   fullName: z.string().min(2).max(50),
   email: z.string().email(),
-  referralName: z.string().min(2).max(50),
-  referralEmail: z.string().email(),
+  refereeName: z.string().min(2).max(50),
+  refereeEmail: z.string().email(),
   program: z.enum(programOptions),
-  message: z.string().min(2).max(500),
+  message: z.string().max(500).optional(),
 });
 
 const ReferForm = () => {
@@ -48,18 +49,36 @@ const ReferForm = () => {
     defaultValues: {
       fullName: "",
       email: "",
-      referralName: "",
-      referralEmail: "",
+      refereeName: "",
+      refereeEmail: "",
       program: "Data Science",
       message: "",
     },
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const response = await fetch("http://localhost:3000/referrals", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ referral: values }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit referral");
+      }
+
+      const data = await response.json();
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+
+    form.reset();
   }
 
   return (
@@ -97,7 +116,7 @@ const ReferForm = () => {
         />
         <FormField
           control={form.control}
-          name="referralName"
+          name="refereeName"
           render={({ field }) => (
             <FormItem>
               <FormLabel>
@@ -112,7 +131,7 @@ const ReferForm = () => {
         />
         <FormField
           control={form.control}
-          name="referralEmail"
+          name="refereeEmail"
           render={({ field }) => (
             <FormItem>
               <FormLabel>
