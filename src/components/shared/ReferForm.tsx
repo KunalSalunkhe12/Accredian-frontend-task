@@ -20,30 +20,14 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
-import React from "react";
+import { formSchema, programOptions } from "../../utils/validation";
+import { LoaderCircle } from "lucide-react";
 
-const programOptions = [
-  "Data Science",
-  "Product Management",
-  "Business Analytics",
-  "Digital Transformation",
-  "Business Management",
-  "Project Management",
-  "Strategy & Leadership",
-  "Senior Management",
-  "Fintech",
-] as const;
+type ReferFormProps = {
+  setFormSubmitted: (value: { submitted: boolean; success: boolean }) => void;
+};
 
-const formSchema = z.object({
-  fullName: z.string().min(2).max(50),
-  email: z.string().email(),
-  refereeName: z.string().min(2).max(50),
-  refereeEmail: z.string().email(),
-  program: z.enum(programOptions),
-  message: z.string().max(500).optional(),
-});
-
-const ReferForm = () => {
+const ReferForm = ({ setFormSubmitted }: ReferFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -56,32 +40,36 @@ const ReferForm = () => {
     },
   });
 
-  // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const response = await fetch("http://localhost:3000/referrals", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ referral: values }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_SERVER_URL}/referrals`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ referral: values }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to submit referral");
       }
 
       const data = await response.json();
-
-      console.log(data);
+      setFormSubmitted({ submitted: true, success: data.success });
     } catch (error) {
       console.log(error);
+      setFormSubmitted({ submitted: true, success: true });
     }
 
     form.reset();
   }
 
-  return (
+  return form.formState.isSubmitting ? (
+    <LoaderCircle className="animate-spin mx-auto" size={40} />
+  ) : (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
