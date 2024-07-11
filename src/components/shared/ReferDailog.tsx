@@ -37,7 +37,7 @@ const ReferDailog = () => {
                   ? "Referral submitted successfully!"
                   : "Failed to submit referral. Please try again."}
               </DialogDescription>
-              <DialogClose>
+              <DialogClose asChild>
                 <Button
                   className="w-36 shadow-lg mx-auto md:mx-0 mt-4"
                   variant={formSubmitted.success ? "default" : "destructive"}
