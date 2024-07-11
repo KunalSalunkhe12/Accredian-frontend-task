@@ -15,7 +15,7 @@ const Hero = () => {
           <ReferDailog />
         </div>
       </div>
-      <div>
+      <div className="md:h-[323px]">
         <img src="/images/hero-img.svg" alt="Hero image" />
       </div>
     </section>
