@@ -11,6 +11,7 @@ Create a captivating and responsive user interface for the refer & earn landing 
 - Tailwind CSS
 - Shadcn ui
 - zod
+- nodemailer
 
 ## Project Setup to run locally
 
@@ -21,4 +22,4 @@ Create a captivating and responsive user interface for the refer & earn landing 
 
 ## Backend API
 
-Github Repository: [Accredian Backend Task]("https://github.com/KunalSalunkhe12/Accredian-backend-task")
+Github Repository: [Accredian Backend Task](https://github.com/KunalSalunkhe12/Accredian-backend-task)
