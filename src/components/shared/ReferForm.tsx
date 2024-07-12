@@ -67,7 +67,7 @@ const ReferForm = ({ setFormSubmitted }: ReferFormProps) => {
     form.reset();
   }
 
-  return form.formState ? (
+  return form.formState.isSubmitting ? (
     <>
       <LoaderCircle className="animate-spin mx-auto" size={40} />
       {/* <p className="text-xs">
